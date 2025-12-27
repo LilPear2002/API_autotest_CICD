@@ -2,7 +2,7 @@ INFO     log:request_util.py:37 ----------------------------------
 INFO     log:request_util.py:38 接口请求开始 >>>
 INFO     log:request_util.py:39 请求地址: http://localhost:5000/api/cart
 INFO     log:request_util.py:40 请求方式: post
-INFO     log:request_util.py:48 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4NDM5NDAuMTcxNzQ2fQ.a6mYTPWZ6AYgfscGmyRSQ3ZIRXUAeqKnpahquN_-dJk'}
+INFO     log:request_util.py:48 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4NDQzODEuOTc2NjY1fQ.SF0ldzX_c1woxUiLJ7s5W0XjxxQ7em_kR7hGzxrPifs'}
 INFO     log:request_util.py:50 请求体: {'product_id': 1, 'quantity': 1}
 INFO     log:request_util.py:68 响应状态码: 200
 INFO     log:request_util.py:71 响应内容: {'code': 200, 'data': {'id': 1, 'price': 6999.0, 'product_id': 1, 'product_name': 'iPhone 15', 'quantity': 1, 'subtotal': 6999.0}, 'message': '添加成功'}

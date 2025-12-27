@@ -2,7 +2,7 @@ Status: 200
 Response: {
   "code": 200,
   "data": {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4NDM5NDAuMDY5NTg1M30.FArxXKBNaHknxox7BlGfdP2_m6STfEviScCTrwmNSuQ",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4NDQzODEuODcxMTIyMX0.ffRhpKiGRZAlLie_yVjg7lHS746W90O2Owg9he9Jhf8",
     "user": {
       "created_at": "2025-12-27T02:35:27.391049",
       "email": "test@example.com",

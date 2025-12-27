@@ -1,4 +1,0 @@
-URL: http://localhost:5000/api/orders
-Method: post
-Headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4NDM5NDAuMTcxNzQ2fQ.a6mYTPWZ6AYgfscGmyRSQ3ZIRXUAeqKnpahquN_-dJk'}
-Body: {'shipping_address': '江苏师范大学'}

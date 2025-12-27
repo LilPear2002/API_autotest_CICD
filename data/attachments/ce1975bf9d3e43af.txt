@@ -2,12 +2,12 @@ Status: 201
 Response: {
   "code": 201,
   "data": {
-    "created_at": "2025-12-27T12:59:00.329081",
-    "email": "panxia@example.com",
+    "created_at": "2025-12-27T13:06:22.136366",
+    "email": "gongmin@example.net",
     "id": 6,
     "is_active": true,
     "role": "user",
-    "username": "user_2192"
+    "username": "user_2403"
   },
   "message": "\u6ce8\u518c\u6210\u529f"
 }

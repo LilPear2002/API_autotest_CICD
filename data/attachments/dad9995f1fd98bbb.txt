@@ -1,0 +1,4 @@
+URL: http://localhost:5000/api/auth/register
+Method: post
+Headers: None
+Body: {'username': 'user_2403', 'email': 'gongmin@example.net', 'password': '123456'}
