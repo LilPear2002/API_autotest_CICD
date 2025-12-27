@@ -1,6 +1,0 @@
-INFO     log:request_util.py:37 ----------------------------------
-INFO     log:request_util.py:38 接口请求开始 >>>
-INFO     log:request_util.py:39 请求地址: http://localhost:5000/api/auth/login
-INFO     log:request_util.py:40 请求方式: post
-INFO     log:request_util.py:50 请求体: {'username': 'testuser', 'password': 'test123'}
-ERROR    log:request_util.py:64 请求异常: HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/auth/login (Caused by NewConnectionError("HTTPConnection(host='localhost', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))

@@ -1,7 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","0","test_shop_process[case_info2]","test_cases.test_order","Sat Dec 27 12:30:50 UTC 2025","broken","Sat Dec 27 12:30:50 UTC 2025","TestOrderFlow","test_order_flow","",""
-"","0","test_shop_process[case_info1]","test_cases.test_order","Sat Dec 27 12:30:50 UTC 2025","broken","Sat Dec 27 12:30:50 UTC 2025","TestOrderFlow","test_order_flow","",""
-"","0","test_shop_process[case_info0]","test_cases.test_order","Sat Dec 27 12:30:50 UTC 2025","broken","Sat Dec 27 12:30:50 UTC 2025","TestOrderFlow","test_order_flow","",""
-"","0","test_register[case_info0]","test_cases.test_register","Sat Dec 27 12:30:50 UTC 2025","broken","Sat Dec 27 12:30:50 UTC 2025","TestRegister","test_register","",""
-"","0","test_login[case_info0]","test_cases.test_auth","Sat Dec 27 12:30:50 UTC 2025","broken","Sat Dec 27 12:30:50 UTC 2025","TestLogin","test_login","",""
-"","0","test_upload[case_info0]","test_cases.test_file","Sat Dec 27 12:30:50 UTC 2025","broken","Sat Dec 27 12:30:50 UTC 2025","TestUpload","test_upload","",""
