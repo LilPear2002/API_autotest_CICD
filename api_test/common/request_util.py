@@ -62,7 +62,7 @@ class RequestUtil:
                           attachment_type=allure.attachment_type.TEXT)
         except Exception as e:
             logger.error(f"请求异常: {e}")
-            return None
+            raise e
 
         # 统一日志记录 响应后
         logger.info(f"响应状态码: {res.status_code}")

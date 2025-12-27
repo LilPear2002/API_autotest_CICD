@@ -39,31 +39,32 @@ jobs:
         # 补充安装 allure-pytest
         pip install allure-pytest requests
 
-    # 4. 启动 Flask 服务 (关键步骤！)
+    # 4. 启动 Flask 服务
     - name: Start Flask Application
       run: |
-        # 进入 Flask 目录
         cd flask_app
-        # 后台运行 Flask，并将日志输出到文件，方便排错
-        # nohup 表示不挂断运行，& 表示后台运行
+        # 启动服务，把标准输出和错误输出都记下来
         nohup python app.py > flask.log 2>&1 &
-        # 等待 5 秒，确保服务完全启动
-        sleep 5
-        echo "Flask started. Checking port..."
-        # 简单验证一下服务是不是通的
-        curl http://127.0.0.1:5000/api/products || echo "Flask connection warning"
+        echo "Flask is starting..."
+        sleep 10 # 延长等待时间到 10 秒
+        
+        # 检查服务是否真的活着
+        if curl -s http://127.0.0.1:5000/api/products > /dev/null; then
+          echo "Flask is UP and Running!"
+        else
+          echo "Flask failed to start!"
+          echo "====== FLASK LOG START ======"
+          cat flask.log
+          echo "====== FLASK LOG END ======"
+          exit 1 # 强制失败，停止后续步骤
+        fi
 
     # 5. 运行 Pytest 测试
     - name: Run API Tests
       run: |
         cd api_test
-        # 注意：这里需要覆盖 config.yaml 里的 base_url，或者确保你 yaml 里写的是 127.0.0.1
-        # 但我们通常通过环境变量或代码逻辑处理。
-        # 假设你的 config.yaml 里 base_url 是 http://localhost:5000，GitHub 上也是能通的。
-        
-        # 运行测试并生成 allure 源数据
         pytest -vs --alluredir=./allure-results --clean-alluredir
-      continue-on-error: true # 即使测试失败，也要继续运行下一步（生成报告）
+      continue-on-error: true
 
     # 6. 生成 Allure 报告
     - name: Generate Allure Report
