@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}用户管理 - Flask商城{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" id="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('main.admin_dashboard') }}">管理后台</a></li>
+        <li class="breadcrumb-item active">用户管理</li>
+    </ol>
+</nav>
+
+<h2 id="users-title">用户管理</h2>
+
+<div class="table-responsive" id="users-table-container">
+    <table class="table" id="users-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>邮箱</th>
+                <th>角色</th>
+                <th>状态</th>
+                <th>注册时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="users-list">
+            {% for user in users %}
+            <tr id="user-row-{{ user.id }}">
+                <td id="user-id-{{ user.id }}">{{ user.id }}</td>
+                <td id="user-name-{{ user.id }}">{{ user.username }}</td>
+                <td id="user-email-{{ user.id }}">{{ user.email }}</td>
+                <td id="user-role-{{ user.id }}">
+                    <select class="form-select form-select-sm role-select" data-id="{{ user.id }}" style="width: auto;">
+                        <option value="user" {% if user.role == 'user' %}selected{% endif %}>普通用户</option>
+                        <option value="admin" {% if user.role == 'admin' %}selected{% endif %}>管理员</option>
+                    </select>
+                </td>
+                <td id="user-status-{{ user.id }}">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input status-switch" type="checkbox" data-id="{{ user.id }}" 
+                               {% if user.is_active %}checked{% endif %} id="user-active-{{ user.id }}">
+                    </div>
+                </td>
+                <td id="user-created-{{ user.id }}">{{ user.created_at.strftime('%Y-%m-%d') }}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-danger delete-user-btn" 
+                            data-id="{{ user.id }}" id="user-delete-{{ user.id }}">删除</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if pagination.pages > 1 %}
+<nav id="pagination">
+    <ul class="pagination justify-content-center">
+        {% if pagination.has_prev %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('main.admin_users', page=pagination.prev_num) }}" id="page-prev">上一页</a>
+        </li>
+        {% endif %}
+        {% for page in pagination.iter_pages() %}
+        {% if page %}
+        <li class="page-item {% if page == pagination.page %}active{% endif %}">
+            <a class="page-link" href="{{ url_for('main.admin_users', page=page) }}" id="page-{{ page }}">{{ page }}</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('main.admin_users', page=pagination.next_num) }}" id="page-next">下一页</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+var token = '{{ session.token }}';
+
+// 修改角色
+document.querySelectorAll('.role-select').forEach(function(select) {
+    select.addEventListener('change', function() {
+        var id = this.dataset.id;
+        var role = this.value;
+        
+        fetch('/api/admin/users/' + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ role: role })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code !== 200) {
+                alert(data.message);
+                location.reload();
+            }
+        });
+    });
+});
+
+// 修改状态
+document.querySelectorAll('.status-switch').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        var id = this.dataset.id;
+        var isActive = this.checked;
+        
+        fetch('/api/admin/users/' + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ is_active: isActive })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code !== 200) {
+                alert(data.message);
+                location.reload();
+            }
+        });
+    });
+});
+
+// 删除用户
+document.querySelectorAll('.delete-user-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        if (!confirm('确定删除该用户？')) return;
+        var id = this.dataset.id;
+        
+        fetch('/api/admin/users/' + id, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 200) {
+                location.reload();
+            } else {
+                alert(data.message);
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

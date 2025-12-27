@@ -1,0 +1,16 @@
+Status: 200
+Response: {
+  "code": 200,
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM4MTQuNzI0OTA1N30.L36G1JruIElzwcqE3zP-zIHS8pA9ZIvN_XnruyQTlNs",
+    "user": {
+      "created_at": "2025-12-27T02:35:27.391049",
+      "email": "test@example.com",
+      "id": 2,
+      "is_active": true,
+      "role": "user",
+      "username": "testuser"
+    }
+  },
+  "message": "\u767b\u5f55\u6210\u529f"
+}

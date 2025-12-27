@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}管理后台 - Flask商城{% endblock %}
+
+{% block content %}
+<h2 id="admin-title">管理后台</h2>
+
+<div class="row mb-4" id="stats-cards">
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white" id="stat-users">
+            <div class="card-body">
+                <h5 class="card-title">用户数</h5>
+                <h2 id="stat-users-count">{{ stats.users }}</h2>
+                <a href="{{ url_for('main.admin_users') }}" class="text-white" id="stat-users-link">查看详情 →</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white" id="stat-products">
+            <div class="card-body">
+                <h5 class="card-title">商品数</h5>
+                <h2 id="stat-products-count">{{ stats.products }}</h2>
+                <a href="{{ url_for('main.admin_products') }}" class="text-white" id="stat-products-link">查看详情 →</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-dark" id="stat-orders">
+            <div class="card-body">
+                <h5 class="card-title">订单数</h5>
+                <h2 id="stat-orders-count">{{ stats.orders }}</h2>
+                <a href="{{ url_for('main.admin_orders') }}" class="text-dark" id="stat-orders-link">查看详情 →</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white" id="stat-categories">
+            <div class="card-body">
+                <h5 class="card-title">分类数</h5>
+                <h2 id="stat-categories-count">{{ stats.categories }}</h2>
+                <a href="{{ url_for('main.admin_categories') }}" class="text-white" id="stat-categories-link">查看详情 →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card" id="recent-orders-card">
+            <div class="card-header">最近订单</div>
+            <div class="card-body">
+                <table class="table table-sm" id="recent-orders-table">
+                    <thead>
+                        <tr>
+                            <th>订单号</th>
+                            <th>金额</th>
+                            <th>状态</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recent-orders-list">
+                        {% for order in recent_orders %}
+                        <tr id="recent-order-{{ order.id }}">
+                            <td>{{ order.order_no[:15] }}...</td>
+                            <td>¥{{ "%.2f"|format(order.total_amount) }}</td>
+                            <td>
+                                {% if order.status == 'pending' %}
+                                <span class="badge bg-warning">待支付</span>
+                                {% elif order.status == 'paid' %}
+                                <span class="badge bg-info">已支付</span>
+                                {% elif order.status == 'shipped' %}
+                                <span class="badge bg-primary">已发货</span>
+                                {% elif order.status == 'completed' %}
+                                <span class="badge bg-success">已完成</span>
+                                {% elif order.status == 'cancelled' %}
+                                <span class="badge bg-secondary">已取消</span>
+                                {% elif order.status == 'refunded' %}
+                                <span class="badge bg-danger">已退款</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr><td colspan="3" class="text-muted">暂无订单</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card" id="quick-links-card">
+            <div class="card-header">快捷操作</div>
+            <div class="card-body">
+                <div class="d-grid gap-2" id="quick-links">
+                    <a href="{{ url_for('main.admin_products') }}" class="btn btn-outline-primary" id="quick-add-product">
+                        <i class="bi bi-plus-circle"></i> 添加商品
+                    </a>
+                    <a href="{{ url_for('main.admin_categories') }}" class="btn btn-outline-success" id="quick-add-category">
+                        <i class="bi bi-folder-plus"></i> 管理分类
+                    </a>
+                    <a href="{{ url_for('main.admin_users') }}" class="btn btn-outline-info" id="quick-manage-users">
+                        <i class="bi bi-people"></i> 用户管理
+                    </a>
+                    <a href="{{ url_for('main.admin_orders') }}" class="btn btn-outline-warning" id="quick-manage-orders">
+                        <i class="bi bi-receipt"></i> 订单管理
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

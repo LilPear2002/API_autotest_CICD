@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}购物车 - Flask商城{% endblock %}
+
+{% block content %}
+<h2 id="cart-title">购物车</h2>
+
+{% if items %}
+<div class="table-responsive" id="cart-table-container">
+    <table class="table" id="cart-table">
+        <thead>
+            <tr>
+                <th>商品</th>
+                <th>单价</th>
+                <th>数量</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            {% for item in items %}
+            <tr id="cart-item-{{ item.id }}">
+                <td>
+                    <a href="{{ url_for('main.product_detail', product_id=item.product_id) }}" id="cart-product-link-{{ item.id }}">
+                        {{ item.product.name }}
+                    </a>
+                </td>
+                <td id="cart-item-price-{{ item.id }}">¥{{ "%.2f"|format(item.product.price) }}</td>
+                <td>
+                    <div class="input-group" style="width: 120px;">
+                        <button type="button" class="btn btn-sm btn-outline-secondary quantity-btn" 
+                                data-action="minus" data-id="{{ item.id }}" id="cart-minus-{{ item.id }}">-</button>
+                        <input type="text" class="form-control form-control-sm text-center" 
+                               value="{{ item.quantity }}" readonly id="cart-quantity-{{ item.id }}">
+                        <button type="button" class="btn btn-sm btn-outline-secondary quantity-btn" 
+                                data-action="plus" data-id="{{ item.id }}" id="cart-plus-{{ item.id }}">+</button>
+                    </div>
+                </td>
+                <td id="cart-subtotal-{{ item.id }}">¥{{ "%.2f"|format(item.product.price * item.quantity) }}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger remove-btn" 
+                            data-id="{{ item.id }}" id="cart-remove-{{ item.id }}">删除</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end"><strong>总计:</strong></td>
+                <td colspan="2"><strong id="cart-total">¥{{ "%.2f"|format(total) }}</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<div class="d-flex justify-content-between" id="cart-actions">
+    <button type="button" class="btn btn-outline-danger" id="clear-cart-btn">清空购物车</button>
+    <a href="#" class="btn btn-primary" id="checkout-btn" data-bs-toggle="modal" data-bs-target="#checkoutModal">去结算</a>
+</div>
+
+<!-- 结算弹窗 -->
+<div class="modal fade" id="checkoutModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="checkout-modal-title">确认订单</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="checkout-form">
+                    <div class="mb-3">
+                        <label for="shipping_address" class="form-label">收货地址</label>
+                        <textarea class="form-control" id="shipping_address" name="shipping_address" rows="3" required></textarea>
+                    </div>
+                    <p>订单金额: <strong id="checkout-total">¥{{ "%.2f"|format(total) }}</strong></p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="checkout-cancel">取消</button>
+                <button type="button" class="btn btn-primary" id="confirm-checkout-btn">提交订单</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="text-center py-5" id="empty-cart">
+    <i class="bi bi-cart-x" style="font-size: 4rem; color: #ccc;"></i>
+    <p class="mt-3 text-muted">购物车是空的</p>
+    <a href="{{ url_for('main.products') }}" class="btn btn-primary" id="go-shopping-btn">去购物</a>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+var token = '{{ session.token }}';
+
+// 更新数量
+document.querySelectorAll('.quantity-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var id = this.dataset.id;
+        var action = this.dataset.action;
+        var input = document.getElementById('cart-quantity-' + id);
+        var quantity = parseInt(input.value);
+        
+        if (action === 'minus' && quantity > 1) {
+            quantity--;
+        } else if (action === 'plus') {
+            quantity++;
+        }
+        
+        fetch('/api/cart/' + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ quantity: quantity })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 200) {
+                location.reload();
+            } else {
+                alert(data.message);
+            }
+        });
+    });
+});
+
+// 删除商品
+document.querySelectorAll('.remove-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        if (!confirm('确定删除？')) return;
+        var id = this.dataset.id;
+        
+        fetch('/api/cart/' + id, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 200) {
+                location.reload();
+            } else {
+                alert(data.message);
+            }
+        });
+    });
+});
+
+// 清空购物车
+document.getElementById('clear-cart-btn')?.addEventListener('click', function() {
+    if (!confirm('确定清空购物车？')) return;
+    
+    fetch('/api/cart/clear', {
+        method: 'DELETE',
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 200) {
+            location.reload();
+        } else {
+            alert(data.message);
+        }
+    });
+});
+
+// 提交订单
+document.getElementById('confirm-checkout-btn')?.addEventListener('click', function() {
+    var address = document.getElementById('shipping_address').value.trim();
+    if (!address) {
+        alert('请填写收货地址');
+        return;
+    }
+    
+    fetch('/api/orders', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({ shipping_address: address })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 201) {
+            alert('订单创建成功');
+            window.location.href = '/orders/' + data.data.id;
+        } else {
+            alert(data.message);
+        }
+    });
+});
+</script>
+{% endblock %}

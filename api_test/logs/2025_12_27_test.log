@@ -1,0 +1,422 @@
+2025-12-27 14:29:42,104 - request_util.py[line:26] - INFO: ----------------------------------
+2025-12-27 14:29:42,104 - request_util.py[line:27] - INFO: 接口请求开始 >>>
+2025-12-27 14:29:42,104 - request_util.py[line:28] - INFO: 请求地址: http://localhost:5000/api/categories
+2025-12-27 14:29:42,104 - request_util.py[line:29] - INFO: 请求方式: get
+2025-12-27 14:29:44,163 - request_util.py[line:44] - INFO: 响应状态码: 200
+2025-12-27 14:29:44,163 - request_util.py[line:47] - INFO: 响应内容: {'code': 200, 'data': [{'description': '手机、电脑、数码产品', 'id': 1, 'name': '电子产品'}, {'description': '男装、女装、鞋子、帽子', 'id': 2, 'name': '服装鞋帽'}, {'description': '零食、饮料、生鲜', 'id': 3, 'name': '食品饮料'}, {'description': '家具、装饰、日用品', 'id': 4, 'name': '家居用品'}, {'description': '书籍、文具、办公用品', 'id': 5, 'name': '图书文具'}], 'message': '操作成功'}
+2025-12-27 14:29:44,163 - request_util.py[line:51] - INFO: 接口请求结束 <<<
+2025-12-27 15:16:56,730 - request_util.py[line:26] - INFO: ----------------------------------
+2025-12-27 15:16:56,732 - request_util.py[line:27] - INFO: 接口请求开始 >>>
+2025-12-27 15:16:56,732 - request_util.py[line:28] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 15:16:56,732 - request_util.py[line:29] - INFO: 请求方式: post
+2025-12-27 15:16:56,732 - request_util.py[line:32] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 15:16:58,866 - request_util.py[line:44] - INFO: 响应状态码: 200
+2025-12-27 15:16:58,866 - request_util.py[line:47] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjM0MTguODYzNTI3OH0.H2gLs9YQ1AC5xDvb4TZEIsENAMuIsaWUOdJaUOz3E-Q', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 15:16:58,866 - request_util.py[line:51] - INFO: 接口请求结束 <<<
+2025-12-27 15:21:01,645 - request_util.py[line:26] - INFO: ----------------------------------
+2025-12-27 15:21:01,645 - request_util.py[line:27] - INFO: 接口请求开始 >>>
+2025-12-27 15:21:01,645 - request_util.py[line:28] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 15:21:01,645 - request_util.py[line:29] - INFO: 请求方式: post
+2025-12-27 15:21:01,645 - request_util.py[line:32] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 15:21:03,760 - request_util.py[line:44] - INFO: 响应状态码: 200
+2025-12-27 15:21:03,761 - request_util.py[line:47] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjM2NjMuNzU5Nzg1N30.DnsHpufy0SNaHC-2-9U82TEDXu2ccsMH-gLBvbrtZ7g', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 15:21:03,761 - request_util.py[line:51] - INFO: 接口请求结束 <<<
+2025-12-27 15:22:42,519 - request_util.py[line:26] - INFO: ----------------------------------
+2025-12-27 15:22:42,519 - request_util.py[line:27] - INFO: 接口请求开始 >>>
+2025-12-27 15:22:42,521 - request_util.py[line:28] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 15:22:42,521 - request_util.py[line:29] - INFO: 请求方式: post
+2025-12-27 15:22:42,521 - request_util.py[line:32] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 15:22:44,630 - request_util.py[line:44] - INFO: 响应状态码: 200
+2025-12-27 15:22:44,630 - request_util.py[line:47] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjM3NjQuNjI5MTkzfQ.p1FNf028TeR50EqG8HavX6PgAPwCkcgfdO7nhU8y4Ok', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 15:22:44,630 - request_util.py[line:51] - INFO: 接口请求结束 <<<
+2025-12-27 15:23:33,246 - request_util.py[line:26] - INFO: ----------------------------------
+2025-12-27 15:23:33,246 - request_util.py[line:27] - INFO: 接口请求开始 >>>
+2025-12-27 15:23:33,246 - request_util.py[line:28] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 15:23:33,247 - request_util.py[line:29] - INFO: 请求方式: post
+2025-12-27 15:23:33,247 - request_util.py[line:32] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 15:23:35,357 - request_util.py[line:44] - INFO: 响应状态码: 200
+2025-12-27 15:23:35,357 - request_util.py[line:47] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjM4MTUuMzU0ODkyNX0.sQaEDoL93wl96lUWibVn0Df0p9KtUnifw83YStabZUs', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 15:23:35,357 - request_util.py[line:51] - INFO: 接口请求结束 <<<
+2025-12-27 16:02:43,036 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:02:43,036 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:02:43,036 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 16:02:43,037 - request_util.py[line:39] - INFO: 请求方式: post
+2025-12-27 16:02:43,037 - request_util.py[line:44] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 16:02:45,156 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:02:45,156 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYxNjUuMTUzNjA0fQ.Ay3O4cepVz0aVddWm7joAeSZrtEX9RD0GsXlv2Kb_uk', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 16:02:45,156 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 16:02:45,159 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:02:45,159 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:02:45,159 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 16:02:45,159 - request_util.py[line:39] - INFO: 请求方式: get
+2025-12-27 16:02:45,159 - request_util.py[line:42] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYxNjUuMTUzNjA0fQ.Ay3O4cepVz0aVddWm7joAeSZrtEX9RD0GsXlv2Kb_uk'}
+2025-12-27 16:02:47,208 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:02:47,208 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'items': [], 'total': 0}, 'message': '操作成功'}
+2025-12-27 16:02:47,208 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 16:03:30,719 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:03:30,719 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:03:30,719 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 16:03:30,719 - request_util.py[line:39] - INFO: 请求方式: post
+2025-12-27 16:03:30,719 - request_util.py[line:44] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 16:03:32,807 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:03:32,807 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYyMTIuODA2MjQ0Nn0.znN22lLDv_ZbW1BOd0WSLy_3y892CjxB2CfEC8GivVA', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 16:03:32,808 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 16:03:32,811 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:03:32,811 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:03:32,812 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 16:03:32,812 - request_util.py[line:39] - INFO: 请求方式: post
+2025-12-27 16:03:32,812 - request_util.py[line:44] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 16:03:34,924 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:03:34,924 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYyMTQuOTIyNDU4Mn0.2VgiGflQo8j4BI8CJOH3m2H-xFlJ2axogb5h99uW1WU', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 16:03:34,924 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 16:03:34,934 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:03:34,935 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:03:34,935 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 16:03:34,935 - request_util.py[line:39] - INFO: 请求方式: get
+2025-12-27 16:03:34,935 - request_util.py[line:42] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYyMTQuOTIyNDU4Mn0.2VgiGflQo8j4BI8CJOH3m2H-xFlJ2axogb5h99uW1WU'}
+2025-12-27 16:03:36,971 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:03:36,971 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'items': [], 'total': 0}, 'message': '操作成功'}
+2025-12-27 16:03:36,971 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 16:04:06,538 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:04:06,538 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:04:06,538 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 16:04:06,539 - request_util.py[line:39] - INFO: 请求方式: post
+2025-12-27 16:04:06,539 - request_util.py[line:44] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 16:04:08,634 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:04:08,634 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYyNDguNjMyODY1Mn0.b7MGt_XTTlj2goOD8f_Wl6No7t4vGrO1ebKAwAJ7s4w', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 16:04:08,634 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 16:04:08,637 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:04:08,639 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:04:08,639 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 16:04:08,639 - request_util.py[line:39] - INFO: 请求方式: post
+2025-12-27 16:04:08,639 - request_util.py[line:44] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 16:04:10,728 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:04:10,728 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYyNTAuNzI3ODMwNH0.VWqA0l2dakLDcW69H9Gs3AsQZAj7Y6v3nWbTkqnLPTw', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 16:04:10,728 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 16:04:10,738 - request_util.py[line:36] - INFO: ----------------------------------
+2025-12-27 16:04:10,738 - request_util.py[line:37] - INFO: 接口请求开始 >>>
+2025-12-27 16:04:10,738 - request_util.py[line:38] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 16:04:10,740 - request_util.py[line:39] - INFO: 请求方式: get
+2025-12-27 16:04:10,740 - request_util.py[line:42] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MjYyNTAuNzI3ODMwNH0.VWqA0l2dakLDcW69H9Gs3AsQZAj7Y6v3nWbTkqnLPTw'}
+2025-12-27 16:04:12,769 - request_util.py[line:56] - INFO: 响应状态码: 200
+2025-12-27 16:04:12,769 - request_util.py[line:59] - INFO: 响应内容: {'code': 200, 'data': {'items': [], 'total': 0}, 'message': '操作成功'}
+2025-12-27 16:04:12,769 - request_util.py[line:63] - INFO: 接口请求结束 <<<
+2025-12-27 17:05:40,636 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:05:40,637 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:05:40,637 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:05:40,637 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:05:40,638 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:05:42,797 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:05:42,798 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4Mjk5NDIuNzkxNjU2N30.4L3U-R5axkOFOgQIuiqNbdY95bWy5IyjSil3sSJTtIM', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:05:42,798 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:05:42,804 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:05:42,804 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:05:42,804 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:05:42,804 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:05:42,806 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:05:44,972 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:05:44,973 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4Mjk5NDQuOTY3NDM3NX0.hQopS8S9-yMRvHITvWzSfK-ZVgkoARQs4nZ1kmiA6U4', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:05:44,973 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:05:44,983 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:05:44,983 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:05:44,985 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 17:05:44,985 - request_util.py[line:40] - INFO: 请求方式: get
+2025-12-27 17:05:44,985 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4Mjk5NDQuOTY3NDM3NX0.hQopS8S9-yMRvHITvWzSfK-ZVgkoARQs4nZ1kmiA6U4'}
+2025-12-27 17:05:47,017 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:05:47,018 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'items': [], 'total': 0}, 'message': '操作成功'}
+2025-12-27 17:05:47,018 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:24:54,067 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:24:54,067 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:24:54,067 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:24:54,067 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:24:54,069 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:24:56,209 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:24:56,209 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEwOTYuMjA1MDg5OH0.4DDgUtljeTqcGNL7Bii9_eoxphMgXm-dQbysFMjiwBk', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:24:56,209 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:24:56,216 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:24:56,216 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:24:56,216 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:24:56,216 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:24:56,217 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:24:58,362 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:24:58,364 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEwOTguMzU5NzMzNn0.sGdOmlR4Thd9HkOeiXS4Kq6Cqg40C7wKl7DPeKdl7nM', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:24:58,364 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:24:58,374 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:24:58,374 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:24:58,374 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 17:24:58,374 - request_util.py[line:40] - INFO: 请求方式: get
+2025-12-27 17:24:58,374 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEwOTguMzU5NzMzNn0.sGdOmlR4Thd9HkOeiXS4Kq6Cqg40C7wKl7DPeKdl7nM'}
+2025-12-27 17:25:00,422 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:25:00,422 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'items': [], 'total': 0}, 'message': '操作成功'}
+2025-12-27 17:25:00,423 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:25:00,433 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:25:00,433 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:25:00,433 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 17:25:00,433 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:25:00,435 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEwOTguMzU5NzMzNn0.sGdOmlR4Thd9HkOeiXS4Kq6Cqg40C7wKl7DPeKdl7nM'}
+2025-12-27 17:25:00,435 - request_util.py[line:50] - INFO: 请求体: {'product_id': 1, 'quantity': 1}
+2025-12-27 17:25:02,602 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:25:02,602 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'id': 1, 'price': 6999.0, 'product_id': 1, 'product_name': 'iPhone 15', 'quantity': 1, 'subtotal': 6999.0}, 'message': '添加成功'}
+2025-12-27 17:25:02,604 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:25:02,830 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:25:02,830 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:25:02,830 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/orders
+2025-12-27 17:25:02,830 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:25:02,833 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEwOTguMzU5NzMzNn0.sGdOmlR4Thd9HkOeiXS4Kq6Cqg40C7wKl7DPeKdl7nM'}
+2025-12-27 17:25:02,833 - request_util.py[line:50] - INFO: 请求体: {'shipping_address': '江苏师范大学'}
+2025-12-27 17:25:04,935 - request_util.py[line:65] - INFO: 响应状态码: 201
+2025-12-27 17:25:04,935 - request_util.py[line:68] - INFO: 响应内容: {'code': 201, 'data': {'created_at': '2025-12-27T09:25:04.882487', 'id': 1, 'items': [{'id': 1, 'price': 6999.0, 'product_id': 1, 'product_name': 'iPhone 15', 'quantity': 1, 'subtotal': 6999.0}], 'order_no': 'ORD20251227172504E30F13', 'payment_method': None, 'shipping_address': '江苏师范大学', 'status': 'pending', 'total_amount': 6999.0, 'updated_at': '2025-12-27T09:25:04.882487', 'user_id': 2}, 'message': '订单创建成功'}
+2025-12-27 17:25:04,936 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:25:04,948 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:25:04,949 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:25:04,949 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/register
+2025-12-27 17:25:04,949 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:25:04,949 - request_util.py[line:50] - INFO: 请求体: {'username': 'user_6135', 'email': 'ekang@example.org', 'password': '123456'}
+2025-12-27 17:25:07,107 - request_util.py[line:65] - INFO: 响应状态码: 201
+2025-12-27 17:25:07,109 - request_util.py[line:68] - INFO: 响应内容: {'code': 201, 'data': {'created_at': '2025-12-27T09:25:07.096257', 'email': 'ekang@example.org', 'id': 3, 'is_active': True, 'role': 'user', 'username': 'user_6135'}, 'message': '注册成功'}
+2025-12-27 17:25:07,109 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:29:42,042 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:29:42,042 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:29:42,042 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:29:42,042 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:29:42,044 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:29:44,153 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:29:44,153 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEzODQuMTQ4NzMzNn0.dpS1L9zvTk2qKuFi0nxf3tW4l6r2AjOkTwsgxyuuhOU', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:29:44,153 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:29:44,159 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:29:44,159 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:29:44,159 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:29:44,160 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:29:44,160 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:29:46,308 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:29:46,308 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEzODYuMzAyNDEwMX0.TTnXqVOcHQM8P1ZxmYVlA1VwSIas8pJKRqzGCykV_QQ', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:29:46,310 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:29:46,318 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:29:46,318 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:29:46,318 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 17:29:46,318 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:29:46,318 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEzODYuMzAyNDEwMX0.TTnXqVOcHQM8P1ZxmYVlA1VwSIas8pJKRqzGCykV_QQ'}
+2025-12-27 17:29:46,320 - request_util.py[line:50] - INFO: 请求体: {'product_id': 1, 'quantity': 1}
+2025-12-27 17:29:48,347 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:29:48,348 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'id': 1, 'price': 6999.0, 'product_id': 1, 'product_name': 'iPhone 15', 'quantity': 1, 'subtotal': 6999.0}, 'message': '添加成功'}
+2025-12-27 17:29:48,348 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:29:48,357 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:29:48,357 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:29:48,358 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/cart
+2025-12-27 17:29:48,358 - request_util.py[line:40] - INFO: 请求方式: get
+2025-12-27 17:29:48,359 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEzODYuMzAyNDEwMX0.TTnXqVOcHQM8P1ZxmYVlA1VwSIas8pJKRqzGCykV_QQ'}
+2025-12-27 17:29:48,359 - request_util.py[line:50] - INFO: 请求体: None
+2025-12-27 17:29:50,386 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:29:50,386 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'items': [{'id': 1, 'price': 6999.0, 'product_id': 1, 'product_name': 'iPhone 15', 'quantity': 1, 'subtotal': 6999.0}], 'total': 6999.0}, 'message': '操作成功'}
+2025-12-27 17:29:50,387 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:29:50,394 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:29:50,395 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:29:50,396 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/orders
+2025-12-27 17:29:50,396 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:29:50,397 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzEzODYuMzAyNDEwMX0.TTnXqVOcHQM8P1ZxmYVlA1VwSIas8pJKRqzGCykV_QQ'}
+2025-12-27 17:29:50,397 - request_util.py[line:50] - INFO: 请求体: {'shipping_address': '江苏师范大学'}
+2025-12-27 17:29:52,440 - request_util.py[line:65] - INFO: 响应状态码: 201
+2025-12-27 17:29:52,440 - request_util.py[line:68] - INFO: 响应内容: {'code': 201, 'data': {'created_at': '2025-12-27T09:29:52.427671', 'id': 2, 'items': [{'id': 2, 'price': 6999.0, 'product_id': 1, 'product_name': 'iPhone 15', 'quantity': 1, 'subtotal': 6999.0}], 'order_no': 'ORD20251227172952E0B014', 'payment_method': None, 'shipping_address': '江苏师范大学', 'status': 'pending', 'total_amount': 6999.0, 'updated_at': '2025-12-27T09:29:52.427671', 'user_id': 2}, 'message': '订单创建成功'}
+2025-12-27 17:29:52,440 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:29:52,448 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:29:52,449 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:29:52,449 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/register
+2025-12-27 17:29:52,449 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:29:52,449 - request_util.py[line:50] - INFO: 请求体: {'username': 'user_7087', 'email': 'leihan@example.com', 'password': '123456'}
+2025-12-27 17:29:54,568 - request_util.py[line:65] - INFO: 响应状态码: 201
+2025-12-27 17:29:54,568 - request_util.py[line:68] - INFO: 响应内容: {'code': 201, 'data': {'created_at': '2025-12-27T09:29:54.556244', 'email': 'leihan@example.com', 'id': 4, 'is_active': True, 'role': 'user', 'username': 'user_7087'}, 'message': '注册成功'}
+2025-12-27 17:29:54,568 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:47:09,905 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:47:09,906 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:47:09,906 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:47:09,906 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:47:09,907 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:47:12,011 - request_util.py[line:65] - INFO: 响应状态码: 200
+2025-12-27 17:47:12,011 - request_util.py[line:68] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzI0MzIuMDEwMjAyNn0.6ImlzL_9k4nR_0Rl0PTJRQO77eclhr093nNhSWR3Cy8', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:47:12,013 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:47:12,019 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:47:12,019 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:47:12,019 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/register
+2025-12-27 17:47:12,019 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:47:12,020 - request_util.py[line:50] - INFO: 请求体: {'username': 'user_8620', 'email': 'sunxiuying@example.org', 'password': '123456'}
+2025-12-27 17:47:14,153 - request_util.py[line:65] - INFO: 响应状态码: 201
+2025-12-27 17:47:14,155 - request_util.py[line:68] - INFO: 响应内容: {'code': 201, 'data': {'created_at': '2025-12-27T09:47:14.144152', 'email': 'sunxiuying@example.org', 'id': 5, 'is_active': True, 'role': 'user', 'username': 'user_8620'}, 'message': '注册成功'}
+2025-12-27 17:47:14,155 - request_util.py[line:72] - INFO: 接口请求结束 <<<
+2025-12-27 17:57:50,444 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 17:57:50,446 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 17:57:50,446 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 17:57:50,446 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 17:57:50,447 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 17:57:52,587 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 17:57:52,588 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzMwNzIuNTgzNzQ1N30.TfumzfHjERPHjb9ez-tZ_DdSEg9KvRLMD0ARf2wPVw0', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 17:57:52,588 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:01:05,212 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:01:05,212 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:01:05,212 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:01:05,214 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:01:05,214 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:01:07,349 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:01:07,349 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzMyNjcuMzQ1MzIzfQ.tR6pw0Dv03CNLZKcOKE-h6LIinrgLUKgTvr22-f0oQI', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:01:07,351 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:01:07,357 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:01:07,357 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:01:07,357 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:01:07,357 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:01:07,357 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzMyNjcuMzQ1MzIzfQ.tR6pw0Dv03CNLZKcOKE-h6LIinrgLUKgTvr22-f0oQI'}
+2025-12-27 18:01:07,359 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:01:09,417 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:01:09,417 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': 'f69ea187a8f84a23ad5968b781ff41a9.txt', 'id': 3, 'original_filename': 'demo.txt', 'upload_at': '2025-12-27T10:01:09.405973', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:01:09,417 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:01:29,021 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:01:29,021 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:01:29,021 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:01:29,022 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:01:29,022 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:01:31,163 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:01:31,165 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzMyOTEuMTYwMzYyNX0.jQGzajJUN828dCnarwUh-w5DPQcj8gOk-PyDXHq_VQY', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:01:31,165 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:01:31,169 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:01:31,169 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:01:31,169 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:01:31,170 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:01:31,170 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzMyOTEuMTYwMzYyNX0.jQGzajJUN828dCnarwUh-w5DPQcj8gOk-PyDXHq_VQY'}
+2025-12-27 18:01:31,170 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:01:33,234 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:01:33,235 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': '19136424e49d40b99894e559bbce9f9b.txt', 'id': 4, 'original_filename': 'demo.txt', 'upload_at': '2025-12-27T10:01:33.225976', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:01:33,235 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:02:32,611 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:02:32,612 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:02:32,612 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:02:32,612 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:02:32,613 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:02:34,722 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:02:34,722 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzMzNTQuNzE5MjM5NX0.zOoA6fTScqMfcAcAeuhu9r5ZY5TE_B55f2DxjBEJvTg', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:02:34,722 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:02:34,728 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:02:34,728 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:02:34,728 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:02:34,728 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:02:34,730 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzMzNTQuNzE5MjM5NX0.zOoA6fTScqMfcAcAeuhu9r5ZY5TE_B55f2DxjBEJvTg'}
+2025-12-27 18:02:34,730 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:02:36,776 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:02:36,777 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': 'd3f6e0fe78b44241a91c115e6a881286.txt', 'id': 5, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:02:36.762885', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:02:36,778 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:04:06,445 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:04:06,445 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:04:06,445 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:04:06,445 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:04:06,446 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:04:08,615 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:04:08,616 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM0NDguNjExMjg4M30.A8rxROVJAQaxB4XSxnC_nUmwwhNBiUJRuLPLdne3IUc', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:04:08,617 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:04:08,621 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:04:08,621 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:04:08,621 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:04:08,621 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:04:08,621 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM0NDguNjExMjg4M30.A8rxROVJAQaxB4XSxnC_nUmwwhNBiUJRuLPLdne3IUc'}
+2025-12-27 18:04:08,623 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:04:10,678 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:04:10,678 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': '2cf702a2ee214b859b87e1e0212fec4a.txt', 'id': 6, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:04:10.660752', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:04:10,678 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:05:49,129 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:05:49,129 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:05:49,129 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:05:49,129 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:05:49,131 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:05:51,263 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:05:51,264 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM1NTEuMjYwNTE2fQ.z0oeyu5cfdNCS6RVhbpiRdii_IWqwx8WbgoQk-kNZDQ', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:05:51,264 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:05:51,269 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:05:51,269 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:05:51,269 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:05:51,271 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:05:51,271 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM1NTEuMjYwNTE2fQ.z0oeyu5cfdNCS6RVhbpiRdii_IWqwx8WbgoQk-kNZDQ'}
+2025-12-27 18:05:51,272 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:05:53,307 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:05:53,308 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': 'f6e69b2a539a434e9c63a6e7894d0b73.txt', 'id': 7, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:05:53.293861', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:05:53,308 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:06:12,873 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:06:12,873 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:06:12,873 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:06:12,873 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:06:12,875 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:06:15,028 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:06:15,028 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM1NzUuMDI0MzgwN30.eeMOFyfBZ5ptbP0_3mENE-yKKjykJMg8CIIxBfh_mRs', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:06:15,028 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:06:15,034 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:06:15,034 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:06:15,034 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:06:15,034 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:06:15,036 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM1NzUuMDI0MzgwN30.eeMOFyfBZ5ptbP0_3mENE-yKKjykJMg8CIIxBfh_mRs'}
+2025-12-27 18:06:15,036 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:06:17,088 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:06:17,088 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': 'df48ff725f5548a8a88a85c8acdbc7a5.txt', 'id': 8, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:06:17.076435', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:06:17,088 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:07:02,044 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:07:02,044 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:07:02,044 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:07:02,044 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:07:02,046 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:07:04,155 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:07:04,156 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM2MjQuMTUyMzU3Nn0.menfsPWXFE8QBZ--8qcSw4f3EqW4-qc0Oi_9_uHn4rE', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:07:04,157 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:07:04,162 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:07:04,162 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:07:04,162 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:07:04,162 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:07:04,162 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM2MjQuMTUyMzU3Nn0.menfsPWXFE8QBZ--8qcSw4f3EqW4-qc0Oi_9_uHn4rE'}
+2025-12-27 18:07:04,162 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:07:06,210 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:07:06,210 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': '31f11cdd68d74c31ada863b8e1285df1.txt', 'id': 9, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:07:06.197704', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:07:06,210 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:08:24,109 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:08:24,111 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:08:24,111 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:08:24,111 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:08:24,111 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:08:26,241 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:08:26,242 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM3MDYuMjM3ODE2M30.nu4WgWYcqBcpFOS1za8IyEQtLZLSy1uhu6mX4dhdiSk', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:08:26,242 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:08:26,247 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:08:26,247 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:08:26,247 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:08:26,247 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:08:26,249 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM3MDYuMjM3ODE2M30.nu4WgWYcqBcpFOS1za8IyEQtLZLSy1uhu6mX4dhdiSk'}
+2025-12-27 18:08:26,249 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:08:28,288 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:08:28,288 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': 'e03a88d1821f48a9afc0bd1666453ac0.txt', 'id': 10, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:08:28.275035', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:08:28,288 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:09:46,002 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:09:46,002 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:09:46,004 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:09:46,004 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:09:46,005 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:09:48,139 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:09:48,139 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM3ODguMTM2MjMxNH0.p83vReOazcB_YGeLfu7KAcwB_PO5WO_tV6NyrW4CCv4', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:09:48,139 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:09:48,147 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:09:48,147 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:09:48,148 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:09:48,148 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:09:48,148 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM3ODguMTM2MjMxNH0.p83vReOazcB_YGeLfu7KAcwB_PO5WO_tV6NyrW4CCv4'}
+2025-12-27 18:09:48,149 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:09:50,194 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:09:50,195 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': '8bf01ebfadf5415e828f5d052b1bc255.txt', 'id': 11, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:09:50.179826', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:09:50,195 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:10:12,589 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:10:12,590 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:10:12,590 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/auth/login
+2025-12-27 18:10:12,590 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:10:12,590 - request_util.py[line:50] - INFO: 请求体: {'username': 'testuser', 'password': 'test123'}
+2025-12-27 18:10:14,727 - request_util.py[line:68] - INFO: 响应状态码: 200
+2025-12-27 18:10:14,727 - request_util.py[line:71] - INFO: 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM4MTQuNzI0OTA1N30.L36G1JruIElzwcqE3zP-zIHS8pA9ZIvN_XnruyQTlNs', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+2025-12-27 18:10:14,729 - request_util.py[line:75] - INFO: 接口请求结束 <<<
+2025-12-27 18:10:14,734 - request_util.py[line:37] - INFO: ----------------------------------
+2025-12-27 18:10:14,735 - request_util.py[line:38] - INFO: 接口请求开始 >>>
+2025-12-27 18:10:14,735 - request_util.py[line:39] - INFO: 请求地址: http://localhost:5000/api/files/upload
+2025-12-27 18:10:14,736 - request_util.py[line:40] - INFO: 请求方式: post
+2025-12-27 18:10:14,737 - request_util.py[line:48] - INFO: 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM4MTQuNzI0OTA1N30.L36G1JruIElzwcqE3zP-zIHS8pA9ZIvN_XnruyQTlNs'}
+2025-12-27 18:10:14,737 - request_util.py[line:55] - INFO: 上传文件参数: dict_keys(['file'])
+2025-12-27 18:10:16,803 - request_util.py[line:68] - INFO: 响应状态码: 201
+2025-12-27 18:10:16,803 - request_util.py[line:71] - INFO: 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': '3e0ac692374949ed87cc37c0ea85f42a.txt', 'id': 12, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:10:16.794314', 'user_id': 2}, 'message': '上传成功'}
+2025-12-27 18:10:16,805 - request_util.py[line:75] - INFO: 接口请求结束 <<<

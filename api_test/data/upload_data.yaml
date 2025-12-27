@@ -1,0 +1,10 @@
+- case_name: "上传文本文件_成功"
+  request:
+    method: "post"
+    url: "/files/upload"
+    # 自定义字段，专门用来存文件名，这不是 requests 的标准参数，是我们自己定义的约定
+    file_name: "demo1.txt"
+    file_type: "text/plain" # 文件的 MIME 类型
+  validate:
+    status_code: 201
+    message: "上传成功"

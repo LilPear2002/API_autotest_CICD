@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+
+{% block title %}商品管理 - Flask商城{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" id="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('main.admin_dashboard') }}">管理后台</a></li>
+        <li class="breadcrumb-item active">商品管理</li>
+    </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 id="products-title">商品管理</h2>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal" id="add-product-btn">
+        <i class="bi bi-plus-circle"></i> 添加商品
+    </button>
+</div>
+
+<div class="table-responsive" id="products-table-container">
+    <table class="table" id="products-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>分类</th>
+                <th>价格</th>
+                <th>库存</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="products-list">
+            {% for product in products %}
+            <tr id="product-row-{{ product.id }}">
+                <td id="product-id-{{ product.id }}">{{ product.id }}</td>
+                <td id="product-name-{{ product.id }}">{{ product.name }}</td>
+                <td id="product-category-{{ product.id }}">{{ product.category.name if product.category else '-' }}</td>
+                <td id="product-price-{{ product.id }}">¥{{ "%.2f"|format(product.price) }}</td>
+                <td id="product-stock-{{ product.id }}">{{ product.stock }}</td>
+                <td id="product-status-{{ product.id }}">
+                    {% if product.is_active %}
+                    <span class="badge bg-success">上架</span>
+                    {% else %}
+                    <span class="badge bg-secondary">下架</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-primary edit-product-btn" 
+                            data-id="{{ product.id }}" data-name="{{ product.name }}" 
+                            data-description="{{ product.description }}" data-price="{{ product.price }}"
+                            data-stock="{{ product.stock }}" data-category="{{ product.category_id }}"
+                            data-active="{{ product.is_active }}" id="product-edit-{{ product.id }}">编辑</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger delete-product-btn" 
+                            data-id="{{ product.id }}" id="product-delete-{{ product.id }}">删除</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if pagination.pages > 1 %}
+<nav id="pagination">
+    <ul class="pagination justify-content-center">
+        {% if pagination.has_prev %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('main.admin_products', page=pagination.prev_num) }}" id="page-prev">上一页</a>
+        </li>
+        {% endif %}
+        {% for page in pagination.iter_pages() %}
+        {% if page %}
+        <li class="page-item {% if page == pagination.page %}active{% endif %}">
+            <a class="page-link" href="{{ url_for('main.admin_products', page=page) }}" id="page-{{ page }}">{{ page }}</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('main.admin_products', page=pagination.next_num) }}" id="page-next">下一页</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+<!-- 商品弹窗 -->
+<div class="modal fade" id="productModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="product-modal-title">添加商品</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <input type="hidden" id="product-id" name="id">
+                    <div class="mb-3">
+                        <label class="form-label">商品名称</label>
+                        <input type="text" class="form-control" id="product-name-input" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">描述</label>
+                        <textarea class="form-control" id="product-description-input" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">价格</label>
+                            <input type="number" class="form-control" id="product-price-input" name="price" step="0.01" min="0" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">库存</label>
+                            <input type="number" class="form-control" id="product-stock-input" name="stock" min="0" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">分类</label>
+                        <select class="form-select" id="product-category-input" name="category_id">
+                            <option value="">无分类</option>
+                            {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="product-active-input" name="is_active" checked>
+                        <label class="form-check-label" for="product-active-input">上架</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="product-cancel">取消</button>
+                <button type="button" class="btn btn-primary" id="save-product-btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+var token = '{{ session.token }}';
+var editingId = null;
+
+// 添加商品
+document.getElementById('add-product-btn').addEventListener('click', function() {
+    editingId = null;
+    document.getElementById('product-modal-title').textContent = '添加商品';
+    document.getElementById('product-form').reset();
+    document.getElementById('product-active-input').checked = true;
+});
+
+// 编辑商品
+document.querySelectorAll('.edit-product-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        editingId = this.dataset.id;
+        document.getElementById('product-modal-title').textContent = '编辑商品';
+        document.getElementById('product-name-input').value = this.dataset.name;
+        document.getElementById('product-description-input').value = this.dataset.description;
+        document.getElementById('product-price-input').value = this.dataset.price;
+        document.getElementById('product-stock-input').value = this.dataset.stock;
+        document.getElementById('product-category-input').value = this.dataset.category || '';
+        document.getElementById('product-active-input').checked = this.dataset.active === 'True';
+        
+        new bootstrap.Modal(document.getElementById('productModal')).show();
+    });
+});
+
+// 保存商品
+document.getElementById('save-product-btn').addEventListener('click', function() {
+    var data = {
+        name: document.getElementById('product-name-input').value,
+        description: document.getElementById('product-description-input').value,
+        price: parseFloat(document.getElementById('product-price-input').value),
+        stock: parseInt(document.getElementById('product-stock-input').value),
+        category_id: document.getElementById('product-category-input').value || null,
+        is_active: document.getElementById('product-active-input').checked
+    };
+    
+    var url = editingId ? '/api/products/' + editingId : '/api/products';
+    var method = editingId ? 'PUT' : 'POST';
+    
+    fetch(url, {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 200 || data.code === 201) {
+            location.reload();
+        } else {
+            alert(data.message);
+        }
+    });
+});
+
+// 删除商品
+document.querySelectorAll('.delete-product-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        if (!confirm('确定删除该商品？')) return;
+        var id = this.dataset.id;
+        
+        fetch('/api/products/' + id, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 200) {
+                location.reload();
+            } else {
+                alert(data.message);
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

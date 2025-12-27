@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="p-5 bg-light rounded-3" id="hero-section">
+            <h1 class="display-5 fw-bold" id="hero-title">欢迎来到Flask商城</h1>
+            <p class="lead" id="hero-desc">这是一个用于接口自动化测试练习的Web应用</p>
+            <a href="{{ url_for('main.products') }}" class="btn btn-primary btn-lg" id="hero-btn">浏览商品</a>
+        </div>
+    </div>
+</div>
+
+{% if categories %}
+<div class="row mb-4" id="categories-section">
+    <div class="col-12">
+        <h3 id="categories-title">商品分类</h3>
+        <div class="d-flex flex-wrap gap-2" id="categories-list">
+            {% for category in categories %}
+            <a href="{{ url_for('main.products', category_id=category.id) }}" 
+               class="btn btn-outline-primary category-btn" 
+               id="category-{{ category.id }}">
+                {{ category.name }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row" id="products-section">
+    <div class="col-12">
+        <h3 id="products-title">最新商品</h3>
+    </div>
+    {% for product in products %}
+    <div class="col-md-3 mb-4">
+        <div class="card product-card h-100" id="product-card-{{ product.id }}">
+            {% if product.image_url %}
+            <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" id="product-img-{{ product.id }}">
+            {% else %}
+            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                <i class="bi bi-image text-white" style="font-size: 3rem;"></i>
+            </div>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title" id="product-name-{{ product.id }}">{{ product.name }}</h5>
+                <p class="card-text text-danger fw-bold" id="product-price-{{ product.id }}">¥{{ "%.2f"|format(product.price) }}</p>
+                <p class="card-text text-muted small" id="product-stock-{{ product.id }}">库存: {{ product.stock }}</p>
+            </div>
+            <div class="card-footer bg-transparent">
+                <a href="{{ url_for('main.product_detail', product_id=product.id) }}" 
+                   class="btn btn-primary w-100" 
+                   id="product-detail-btn-{{ product.id }}">查看详情</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12">
+        <p class="text-muted" id="no-products">暂无商品</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

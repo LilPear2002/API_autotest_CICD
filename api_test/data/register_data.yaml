@@ -1,0 +1,13 @@
+# data/register_data.yaml
+- case_name: "新用户注册测试"
+  request:
+    method: "post"
+    url: "/auth/register"
+    json:
+      # 这里必须用热加载，因为不能重复注册同一个名字
+      username: "user_${get_random_number()}"
+      email: "${get_random_email()}"
+      password: "123456"
+  validate:
+    status_code: 201
+    message: "注册成功"

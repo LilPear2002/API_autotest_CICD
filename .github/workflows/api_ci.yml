@@ -1,0 +1,83 @@
+name: API Automated Testing
+
+# 触发机制：当代码 push 到 main 分支时自动运行
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# 权限设置（为了后面发布 Allure 报告到 GitHub Pages）
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. 拉取代码
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # 2. 安装 Python 环境
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    # 3. 安装依赖 (Flask 和 Pytest 的依赖都要装)
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # 安装 Flask 应用的依赖 (假设在 flask_app 目录下)
+        if [ -f flask_app/requirements.txt ]; then pip install -r flask_app/requirements.txt; fi
+        # 安装 测试框架 的依赖 (假设在 api_test 目录下)
+        if [ -f api_test/requirements.txt ]; then pip install -r api_test/requirements.txt; fi
+        # 补充安装 allure-pytest
+        pip install allure-pytest requests
+
+    # 4. 启动 Flask 服务 (关键步骤！)
+    - name: Start Flask Application
+      run: |
+        # 进入 Flask 目录
+        cd flask_app
+        # 后台运行 Flask，并将日志输出到文件，方便排错
+        # nohup 表示不挂断运行，& 表示后台运行
+        nohup python app.py > flask.log 2>&1 &
+        # 等待 5 秒，确保服务完全启动
+        sleep 5
+        echo "Flask started. Checking port..."
+        # 简单验证一下服务是不是通的
+        curl http://127.0.0.1:5000/api/products || echo "Flask connection warning"
+
+    # 5. 运行 Pytest 测试
+    - name: Run API Tests
+      run: |
+        cd api_test
+        # 注意：这里需要覆盖 config.yaml 里的 base_url，或者确保你 yaml 里写的是 127.0.0.1
+        # 但我们通常通过环境变量或代码逻辑处理。
+        # 假设你的 config.yaml 里 base_url 是 http://localhost:5000，GitHub 上也是能通的。
+        
+        # 运行测试并生成 allure 源数据
+        pytest -vs --alluredir=./allure-results --clean-alluredir
+      continue-on-error: true # 即使测试失败，也要继续运行下一步（生成报告）
+
+    # 6. 生成 Allure 报告
+    - name: Generate Allure Report
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      with:
+        allure_results: api_test/allure-results
+        allure_report: allure-report
+
+    # 7. 发布报告到 GitHub Pages (高大上的功能)
+    - name: Deploy Report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: always()
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: allure-report
+        publish_branch: gh-pages

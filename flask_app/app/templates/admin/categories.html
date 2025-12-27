@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}分类管理 - Flask商城{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" id="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('main.admin_dashboard') }}">管理后台</a></li>
+        <li class="breadcrumb-item active">分类管理</li>
+    </ol>
+</nav>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 id="categories-title">分类管理</h2>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#categoryModal" id="add-category-btn">
+        <i class="bi bi-plus-circle"></i> 添加分类
+    </button>
+</div>
+
+<div class="table-responsive" id="categories-table-container">
+    <table class="table" id="categories-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>描述</th>
+                <th>商品数</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="categories-list">
+            {% for category in categories %}
+            <tr id="category-row-{{ category.id }}">
+                <td id="category-id-{{ category.id }}">{{ category.id }}</td>
+                <td id="category-name-{{ category.id }}">{{ category.name }}</td>
+                <td id="category-desc-{{ category.id }}">{{ category.description or '-' }}</td>
+                <td id="category-count-{{ category.id }}">{{ category.products.count() }}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-primary edit-category-btn" 
+                            data-id="{{ category.id }}" data-name="{{ category.name }}" 
+                            data-description="{{ category.description }}" id="category-edit-{{ category.id }}">编辑</button>
+                    <button type="button" class="btn btn-sm btn-outline-danger delete-category-btn" 
+                            data-id="{{ category.id }}" id="category-delete-{{ category.id }}">删除</button>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5" class="text-muted" id="no-categories">暂无分类</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- 分类弹窗 -->
+<div class="modal fade" id="categoryModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="category-modal-title">添加分类</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="category-form">
+                    <input type="hidden" id="category-id-input" name="id">
+                    <div class="mb-3">
+                        <label class="form-label">分类名称</label>
+                        <input type="text" class="form-control" id="category-name-input" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">描述</label>
+                        <textarea class="form-control" id="category-description-input" name="description" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="category-cancel">取消</button>
+                <button type="button" class="btn btn-primary" id="save-category-btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+var token = '{{ session.token }}';
+var editingId = null;
+
+// 添加分类
+document.getElementById('add-category-btn').addEventListener('click', function() {
+    editingId = null;
+    document.getElementById('category-modal-title').textContent = '添加分类';
+    document.getElementById('category-form').reset();
+});
+
+// 编辑分类
+document.querySelectorAll('.edit-category-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        editingId = this.dataset.id;
+        document.getElementById('category-modal-title').textContent = '编辑分类';
+        document.getElementById('category-name-input').value = this.dataset.name;
+        document.getElementById('category-description-input').value = this.dataset.description;
+        
+        new bootstrap.Modal(document.getElementById('categoryModal')).show();
+    });
+});
+
+// 保存分类
+document.getElementById('save-category-btn').addEventListener('click', function() {
+    var data = {
+        name: document.getElementById('category-name-input').value,
+        description: document.getElementById('category-description-input').value
+    };
+    
+    var url = editingId ? '/api/categories/' + editingId : '/api/categories';
+    var method = editingId ? 'PUT' : 'POST';
+    
+    fetch(url, {
+        method: method,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 200 || data.code === 201) {
+            location.reload();
+        } else {
+            alert(data.message);
+        }
+    });
+});
+
+// 删除分类
+document.querySelectorAll('.delete-category-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        if (!confirm('确定删除该分类？')) return;
+        var id = this.dataset.id;
+        
+        fetch('/api/categories/' + id, {
+            method: 'DELETE',
+            headers: { 'Authorization': 'Bearer ' + token }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 200) {
+                location.reload();
+            } else {
+                alert(data.message);
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

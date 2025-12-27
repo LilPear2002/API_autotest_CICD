@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}我的订单 - Flask商城{% endblock %}
+
+{% block content %}
+<h2 id="orders-title">我的订单</h2>
+
+{% if orders %}
+<div class="table-responsive" id="orders-table-container">
+    <table class="table" id="orders-table">
+        <thead>
+            <tr>
+                <th>订单号</th>
+                <th>金额</th>
+                <th>状态</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="orders-list">
+            {% for order in orders %}
+            <tr id="order-row-{{ order.id }}">
+                <td id="order-no-{{ order.id }}">{{ order.order_no }}</td>
+                <td id="order-amount-{{ order.id }}">¥{{ "%.2f"|format(order.total_amount) }}</td>
+                <td id="order-status-{{ order.id }}">
+                    {% if order.status == 'pending' %}
+                    <span class="badge bg-warning">待支付</span>
+                    {% elif order.status == 'paid' %}
+                    <span class="badge bg-info">已支付</span>
+                    {% elif order.status == 'shipped' %}
+                    <span class="badge bg-primary">已发货</span>
+                    {% elif order.status == 'completed' %}
+                    <span class="badge bg-success">已完成</span>
+                    {% elif order.status == 'cancelled' %}
+                    <span class="badge bg-secondary">已取消</span>
+                    {% elif order.status == 'refunded' %}
+                    <span class="badge bg-danger">已退款</span>
+                    {% endif %}
+                </td>
+                <td id="order-time-{{ order.id }}">{{ order.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td>
+                    <a href="{{ url_for('main.order_detail', order_id=order.id) }}" 
+                       class="btn btn-sm btn-outline-primary" id="order-detail-btn-{{ order.id }}">详情</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if pagination.pages > 1 %}
+<nav id="pagination">
+    <ul class="pagination justify-content-center">
+        {% if pagination.has_prev %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('main.orders', page=pagination.prev_num) }}" id="page-prev">上一页</a>
+        </li>
+        {% endif %}
+        {% for page in pagination.iter_pages() %}
+        {% if page %}
+        <li class="page-item {% if page == pagination.page %}active{% endif %}">
+            <a class="page-link" href="{{ url_for('main.orders', page=page) }}" id="page-{{ page }}">{{ page }}</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled"><span class="page-link">...</span></li>
+        {% endif %}
+        {% endfor %}
+        {% if pagination.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('main.orders', page=pagination.next_num) }}" id="page-next">下一页</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
+{% else %}
+<div class="text-center py-5" id="no-orders">
+    <i class="bi bi-receipt" style="font-size: 4rem; color: #ccc;"></i>
+    <p class="mt-3 text-muted">暂无订单</p>
+    <a href="{{ url_for('main.products') }}" class="btn btn-primary" id="go-shopping-btn">去购物</a>
+</div>
+{% endif %}
+{% endblock %}

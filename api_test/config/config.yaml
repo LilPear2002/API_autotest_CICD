@@ -1,0 +1,8 @@
+# config/config.yaml
+
+# 当前环境配置
+env:
+  base_url: "http://localhost:5000/api"  # 这里根据API文档的基础信息填写
+
+  # 如果有数据库配置也可以放这里
+  db_path: "D:\\Workspace\\flask-project\\flask_app\\instance\\app.db"

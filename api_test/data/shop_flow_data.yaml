@@ -1,0 +1,29 @@
+# data/shop_flow_data.yaml
+# 这里不需要注册和登录了，因为 pytest 会自动执行 conftest 里的登录
+
+- case_name: "01_添加商品到购物车"
+  request:
+    method: "post"
+    url: "/cart"
+    json:
+      product_id: 1
+      quantity: 1
+  validate:
+    status_code: 200
+    message: "操作成功"
+
+- case_name: "02_查看购物车"
+  request:
+    method: "get"
+    url: "/cart"
+  validate:
+    status_code: 200
+
+- case_name: "03_创建订单"
+  request:
+    method: "post"
+    url: "/orders"
+    json:
+      shipping_address: "江苏师范大学"
+  validate:
+    status_code: 201

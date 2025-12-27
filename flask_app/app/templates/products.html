@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}商品列表 - Flask商城{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3 mb-4" id="sidebar">
+        <div class="card">
+            <div class="card-header" id="filter-header">筛选</div>
+            <div class="card-body">
+                <h6>商品分类</h6>
+                <div class="list-group list-group-flush" id="category-filter">
+                    <a href="{{ url_for('main.products', keyword=keyword) }}" 
+                       class="list-group-item list-group-item-action {% if not current_category %}active{% endif %}"
+                       id="category-all">全部</a>
+                    {% for category in categories %}
+                    <a href="{{ url_for('main.products', category_id=category.id, keyword=keyword) }}" 
+                       class="list-group-item list-group-item-action {% if current_category == category.id %}active{% endif %}"
+                       id="category-filter-{{ category.id }}">{{ category.name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-9" id="product-list">
+        {% if keyword %}
+        <div class="alert alert-info" id="search-result">
+            搜索 "{{ keyword }}" 的结果，共 {{ pagination.total }} 件商品
+        </div>
+        {% endif %}
+        
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card product-card h-100" id="product-card-{{ product.id }}">
+                    {% if product.image_url %}
+                    <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" id="product-img-{{ product.id }}">
+                    {% else %}
+                    <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 180px;">
+                        <i class="bi bi-image text-white" style="font-size: 2rem;"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h6 class="card-title" id="product-name-{{ product.id }}">{{ product.name }}</h6>
+                        <p class="card-text text-danger fw-bold" id="product-price-{{ product.id }}">¥{{ "%.2f"|format(product.price) }}</p>
+                        <p class="card-text text-muted small" id="product-stock-{{ product.id }}">
+                            {% if product.stock > 0 %}库存: {{ product.stock }}{% else %}已售罄{% endif %}
+                        </p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="{{ url_for('main.product_detail', product_id=product.id) }}" 
+                           class="btn btn-primary btn-sm w-100"
+                           id="product-detail-btn-{{ product.id }}">查看详情</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12">
+                <p class="text-muted" id="no-products">暂无商品</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if pagination.pages > 1 %}
+        <nav id="pagination">
+            <ul class="pagination justify-content-center">
+                {% if pagination.has_prev %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.products', page=pagination.prev_num, category_id=current_category, keyword=keyword) }}" id="page-prev">上一页</a>
+                </li>
+                {% endif %}
+                {% for page in pagination.iter_pages() %}
+                {% if page %}
+                <li class="page-item {% if page == pagination.page %}active{% endif %}">
+                    <a class="page-link" href="{{ url_for('main.products', page=page, category_id=current_category, keyword=keyword) }}" id="page-{{ page }}">{{ page }}</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+                {% endfor %}
+                {% if pagination.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('main.products', page=pagination.next_num, category_id=current_category, keyword=keyword) }}" id="page-next">下一页</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

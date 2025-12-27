@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}订单详情 - Flask商城{% endblock %}
+
+{% block content %}
+<nav aria-label="breadcrumb" id="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">首页</a></li>
+        <li class="breadcrumb-item"><a href="{{ url_for('main.orders') }}">我的订单</a></li>
+        <li class="breadcrumb-item active">{{ order.order_no }}</li>
+    </ol>
+</nav>
+
+<div class="card mb-4" id="order-info-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <span id="order-no">订单号: {{ order.order_no }}</span>
+        <span id="order-status">
+            {% if order.status == 'pending' %}
+            <span class="badge bg-warning">待支付</span>
+            {% elif order.status == 'paid' %}
+            <span class="badge bg-info">已支付</span>
+            {% elif order.status == 'shipped' %}
+            <span class="badge bg-primary">已发货</span>
+            {% elif order.status == 'completed' %}
+            <span class="badge bg-success">已完成</span>
+            {% elif order.status == 'cancelled' %}
+            <span class="badge bg-secondary">已取消</span>
+            {% elif order.status == 'refunded' %}
+            <span class="badge bg-danger">已退款</span>
+            {% endif %}
+        </span>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>创建时间:</strong> <span id="order-created-at">{{ order.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</span></p>
+                <p><strong>收货地址:</strong> <span id="order-address">{{ order.shipping_address }}</span></p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>支付方式:</strong> <span id="order-payment">{{ order.payment_method or '未支付' }}</span></p>
+                <p><strong>订单金额:</strong> <span id="order-amount" class="text-danger fw-bold">¥{{ "%.2f"|format(order.total_amount) }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4" id="order-items-card">
+    <div class="card-header">商品列表</div>
+    <div class="card-body">
+        <table class="table" id="order-items-table">
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                </tr>
+            </thead>
+            <tbody id="order-items">
+                {% for item in order.items %}
+                <tr id="order-item-{{ item.id }}">
+                    <td id="item-name-{{ item.id }}">{{ item.product_name }}</td>
+                    <td id="item-price-{{ item.id }}">¥{{ "%.2f"|format(item.price) }}</td>
+                    <td id="item-quantity-{{ item.id }}">{{ item.quantity }}</td>
+                    <td id="item-subtotal-{{ item.id }}">¥{{ "%.2f"|format(item.price * item.quantity) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="d-flex gap-2" id="order-actions">
+    {% if order.status == 'pending' %}
+    <button type="button" class="btn btn-primary" id="pay-btn" data-bs-toggle="modal" data-bs-target="#payModal">立即支付</button>
+    <button type="button" class="btn btn-outline-danger" id="cancel-btn">取消订单</button>
+    {% elif order.status == 'paid' %}
+    <button type="button" class="btn btn-outline-warning" id="refund-btn">申请退款</button>
+    {% endif %}
+</div>
+
+<!-- 支付弹窗 -->
+<div class="modal fade" id="payModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pay-modal-title">选择支付方式</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="payment_method" id="pay-alipay" value="alipay" checked>
+                    <label class="form-check-label" for="pay-alipay">支付宝</label>
+                </div>
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="radio" name="payment_method" id="pay-wechat" value="wechat">
+                    <label class="form-check-label" for="pay-wechat">微信支付</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="payment_method" id="pay-card" value="card">
+                    <label class="form-check-label" for="pay-card">银行卡</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="pay-cancel">取消</button>
+                <button type="button" class="btn btn-primary" id="confirm-pay-btn">确认支付</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+var token = '{{ session.token }}';
+var orderId = {{ order.id }};
+
+// 支付
+document.getElementById('confirm-pay-btn')?.addEventListener('click', function() {
+    var method = document.querySelector('input[name="payment_method"]:checked').value;
+    
+    fetch('/api/orders/' + orderId + '/pay', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({ payment_method: method })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 200) {
+            alert('支付成功');
+            location.reload();
+        } else {
+            alert(data.message);
+        }
+    });
+});
+
+// 取消订单
+document.getElementById('cancel-btn')?.addEventListener('click', function() {
+    if (!confirm('确定取消订单？')) return;
+    
+    fetch('/api/orders/' + orderId + '/cancel', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 200) {
+            alert('订单已取消');
+            location.reload();
+        } else {
+            alert(data.message);
+        }
+    });
+});
+
+// 申请退款
+document.getElementById('refund-btn')?.addEventListener('click', function() {
+    if (!confirm('确定申请退款？')) return;
+    
+    fetch('/api/orders/' + orderId + '/refund', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + token }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 200) {
+            alert('退款成功');
+            location.reload();
+        } else {
+            alert(data.message);
+        }
+    });
+});
+</script>
+{% endblock %}

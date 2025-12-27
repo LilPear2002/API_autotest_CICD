@@ -1,0 +1,10 @@
+- case_name: "正向登录-登陆成功"
+  request:
+    method: "POST"
+    url: "/auth/login"
+    json:
+      username: "testuser"
+      password: "test123"
+  validate:
+    status_code: 200
+    message: "登录成功"

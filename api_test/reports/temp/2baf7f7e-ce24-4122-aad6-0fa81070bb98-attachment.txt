@@ -1,0 +1,14 @@
+Status: 201
+Response: {
+  "code": 201,
+  "data": {
+    "file_size": 6,
+    "file_type": "txt",
+    "filename": "3e0ac692374949ed87cc37c0ea85f42a.txt",
+    "id": 12,
+    "original_filename": "demo1.txt",
+    "upload_at": "2025-12-27T10:10:16.794314",
+    "user_id": 2
+  },
+  "message": "\u4e0a\u4f20\u6210\u529f"
+}

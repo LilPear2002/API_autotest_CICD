@@ -1,0 +1,17 @@
+[32mINFO    [0m log:request_util.py:37 ----------------------------------
+[32mINFO    [0m log:request_util.py:38 接口请求开始 >>>
+[32mINFO    [0m log:request_util.py:39 请求地址: http://localhost:5000/api/auth/login
+[32mINFO    [0m log:request_util.py:40 请求方式: post
+[32mINFO    [0m log:request_util.py:50 请求体: {'username': 'testuser', 'password': 'test123'}
+[32mINFO    [0m log:request_util.py:68 响应状态码: 200
+[32mINFO    [0m log:request_util.py:71 响应内容: {'code': 200, 'data': {'token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM4MTQuNzI0OTA1N30.L36G1JruIElzwcqE3zP-zIHS8pA9ZIvN_XnruyQTlNs', 'user': {'created_at': '2025-12-27T02:35:27.391049', 'email': 'test@example.com', 'id': 2, 'is_active': True, 'role': 'user', 'username': 'testuser'}}, 'message': '登录成功'}
+[32mINFO    [0m log:request_util.py:75 接口请求结束 <<<
+[32mINFO    [0m log:request_util.py:37 ----------------------------------
+[32mINFO    [0m log:request_util.py:38 接口请求开始 >>>
+[32mINFO    [0m log:request_util.py:39 请求地址: http://localhost:5000/api/files/upload
+[32mINFO    [0m log:request_util.py:40 请求方式: post
+[32mINFO    [0m log:request_util.py:48 请求头: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyIiwicm9sZSI6InVzZXIiLCJleHAiOjE3NjY4MzM4MTQuNzI0OTA1N30.L36G1JruIElzwcqE3zP-zIHS8pA9ZIvN_XnruyQTlNs'}
+[32mINFO    [0m log:request_util.py:55 上传文件参数: dict_keys(['file'])
+[32mINFO    [0m log:request_util.py:68 响应状态码: 201
+[32mINFO    [0m log:request_util.py:71 响应内容: {'code': 201, 'data': {'file_size': 6, 'file_type': 'txt', 'filename': '3e0ac692374949ed87cc37c0ea85f42a.txt', 'id': 12, 'original_filename': 'demo1.txt', 'upload_at': '2025-12-27T10:10:16.794314', 'user_id': 2}, 'message': '上传成功'}
+[32mINFO    [0m log:request_util.py:75 接口请求结束 <<<
