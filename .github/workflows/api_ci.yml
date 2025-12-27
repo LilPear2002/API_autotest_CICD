@@ -44,7 +44,7 @@ jobs:
       run: |
         cd flask_app
         # 启动服务，把标准输出和错误输出都记下来
-        nohup python app.py > flask.log 2>&1 &
+        nohup python run.py > flask.log 2>&1 &
         echo "Flask is starting..."
         sleep 10 # 延长等待时间到 10 秒
         
