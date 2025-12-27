@@ -6,13 +6,29 @@ from utils.yaml_util import YamlUtil
 class DBUtil:
 
     def __init__(self):
-        # 1. 从配置文件读取数据库路径
         config = YamlUtil.read_config()
-        self.db_path = config['env']['db_path']
+        relative_path = config['env']['db_path'] # 读取出来的现在是 "flask_app/instance/app.db"
+        
+        # --- 核心修改：动态计算绝对路径 ---
+        
+        # 1. 找到 api_test 的根目录 (YamlUtil.ROOT_PATH 指向的是 api_test 文件夹)
+        test_root = YamlUtil.ROOT_PATH
+        
+        # 2. 找到整个仓库的项目根目录 (即 api_test 的上一级)
+        # 你的 flask_app 和 api_test 是平级的，所以要往上走一层
+        project_root = os.path.dirname(test_root)
+        
+        # 3. 拼接出数据库的真实绝对路径 (兼容 Windows 和 Linux)
+        self.db_path = os.path.join(project_root, relative_path)
+        
+        # -------------------------------
+        
+        print(f"正在尝试连接数据库，路径: {self.db_path}") # 方便调试看路径对不对
 
-        # 检查文件是否存在，防止报错一脸懵
         if not os.path.exists(self.db_path):
-            raise FileNotFoundError(f"数据库文件未找到，请检查路径: {self.db_path}")
+            # 如果还找不到，打印一下当前目录结构，帮我们找原因
+            print(f"当前项目根目录下的文件: {os.listdir(project_root)}")
+            raise FileNotFoundError(f"数据库文件未找到: {self.db_path}")
 
     def query_one(self, sql):
         """
