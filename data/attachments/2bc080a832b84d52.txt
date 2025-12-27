@@ -1,0 +1,18 @@
+Status: 200
+Response: {
+  "code": 200,
+  "data": {
+    "items": [
+      {
+        "id": 1,
+        "price": 6999.0,
+        "product_id": 1,
+        "product_name": "iPhone 15",
+        "quantity": 1,
+        "subtotal": 6999.0
+      }
+    ],
+    "total": 6999.0
+  },
+  "message": "\u64cd\u4f5c\u6210\u529f"
+}
